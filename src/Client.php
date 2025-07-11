@@ -13,9 +13,9 @@ class Client {
     
     // 定义性能指标阈值
     const PERFORMANCE_THRESHOLDS = array(
-        'execution_time' => 1.0, // 秒
-        'memory_usage' => 32 * 1024 * 1024, // 32MB
-        'db_queries' => 100
+        'execution_time' => 0.3, // 秒
+        'memory_usage' => 16 * 1024 * 1024, // 32MB
+        'db_queries' => 25
     );
     
     public function __construct($plugin_name, $version) {
@@ -112,12 +112,12 @@ class Client {
         $data = $this->collect_telemetry_data();
         
         // 发送数据到遥测服务器
-        $response = wp_remote_post('https://api.wpcio.com.com/telemetry/v1/collect', array(
+        $response = wp_remote_post('https://srv.wpcio.com.com/telemetry/v1/collect', array(
             'body' => json_encode($data),
             'headers' => array(
                 'Content-Type' => 'application/json',
             ),
-            'timeout' => 15,
+            'timeout' => 30,
         ));
         
         if (is_wp_error($response)) {
