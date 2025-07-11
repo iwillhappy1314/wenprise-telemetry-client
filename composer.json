@@ -1,0 +1,19 @@
+{
+    "name": "wenprise/telemetry-client",
+    "description": "Telemetry Client for WordPress theme and plugins",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Wenprise\\TelemetryClient\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Wenprise",
+            "email": "amos@wpcio.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
